@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "41cfed99125026470eee1e11f56d640a",
+    "content-hash": "58efbb49d2418fdbc87436b6f0d2f017",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -117,75 +117,6 @@
                 }
             ],
             "time": "2021-01-20T22:51:39+00:00"
-        },
-        {
-            "name": "cviebrock/laravel-elasticsearch",
-            "version": "8.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cviebrock/laravel-elasticsearch.git",
-                "reference": "d135f3ffd560cb465910d6d39edb5206d11c0f2e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cviebrock/laravel-elasticsearch/zipball/d135f3ffd560cb465910d6d39edb5206d11c0f2e",
-                "reference": "d135f3ffd560cb465910d6d39edb5206d11c0f2e",
-                "shasum": ""
-            },
-            "require": {
-                "elasticsearch/elasticsearch": "^7.0",
-                "ext-json": "*",
-                "illuminate/contracts": "^8.0",
-                "illuminate/support": "^8.0",
-                "php": "^7.3"
-            },
-            "require-dev": {
-                "limedeck/phpunit-detailed-printer": "^6.0",
-                "orchestra/testbench": "^6.0",
-                "phpunit/phpunit": "^9.3"
-            },
-            "suggest": {
-                "aws/aws-sdk-php": "Required to connect to an Elasticsearch host on AWS (^3.80)"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Cviebrock\\LaravelElasticsearch\\ServiceProvider"
-                    ],
-                    "aliases": {
-                        "Elasticsearch": "Cviebrock\\LaravelElasticsearch\\Facade"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Cviebrock\\LaravelElasticsearch\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Colin Viebrock",
-                    "email": "colin@viebrock.ca"
-                }
-            ],
-            "description": "An easy way to use the official PHP ElasticSearch client in your Laravel applications.",
-            "homepage": "https://github.com/cviebrock/laravel-elasticsearch",
-            "keywords": [
-                "client",
-                "elasticsearch",
-                "laravel",
-                "search"
-            ],
-            "support": {
-                "issues": "https://github.com/cviebrock/laravel-elasticsearch/issues",
-                "source": "https://github.com/cviebrock/laravel-elasticsearch/tree/8.0.1"
-            },
-            "time": "2020-09-30T00:37:15+00:00"
         },
         {
             "name": "dflydev/dot-access-data",
@@ -1345,6 +1276,70 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2021-07-27T13:03:29+00:00"
+        },
+        {
+            "name": "laravel/telescope",
+            "version": "v4.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/telescope.git",
+                "reference": "67bc1819a3f9b6cd3bac3c1fae506dcd7a8d8a48"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/telescope/zipball/67bc1819a3f9b6cd3bac3c1fae506dcd7a8d8a48",
+                "reference": "67bc1819a3f9b6cd3bac3c1fae506dcd7a8d8a48",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "laravel/framework": "^8.29",
+                "php": "^7.3|^8.0",
+                "symfony/var-dumper": "^5.0"
+            },
+            "require-dev": {
+                "ext-gd": "*",
+                "orchestra/testbench": "^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Telescope\\TelescopeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Telescope\\": "src/",
+                    "Laravel\\Telescope\\Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                },
+                {
+                    "name": "Mohamed Said",
+                    "email": "mohamed@laravel.com"
+                }
+            ],
+            "description": "An elegant debug assistant for the Laravel framework.",
+            "keywords": [
+                "debugging",
+                "laravel",
+                "monitoring"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/telescope/issues",
+                "source": "https://github.com/laravel/telescope/tree/v4.6.0"
+            },
+            "time": "2021-07-13T14:59:41+00:00"
         },
         {
             "name": "laravel/tinker",
