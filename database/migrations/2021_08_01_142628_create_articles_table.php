@@ -20,6 +20,7 @@ class CreateArticlesTable extends Migration
             $table->text('text');
             $table->string('author')->nullable();
             $table->timestamp('published_at');
+            $table->jsonb('tags');
 
             $table->timestamps();
         });

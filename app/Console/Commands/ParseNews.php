@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\Article;
+use Database\Seeders\ArticleSeeder;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 
@@ -72,6 +73,7 @@ class ParseNews extends Command
                 'published_at' =>  $a['publishedAt'],
                 'created_at' => $now,
                 'updated_at' => $now,
+                'tags' => json_encode(ArticleSeeder::getRandomTags()),
             ];
         }, $news['articles']);
     }
