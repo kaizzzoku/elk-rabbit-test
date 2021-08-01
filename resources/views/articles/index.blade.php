@@ -15,6 +15,7 @@
         <div class="card m-2">
             <h4 class="m-2 card-title">{{ $a->title }}</h4>
             <h5 class="m-2 card-subtitle text-muted">Author: {{ $a->author  }}</h5>
+            <h5 class="m-2 card-subtitle text-muted">Tags: {{ implode(', ', $a->tags)  }}</h5>
         </div>
     @endforeach
     {{  $articles->links() }}

@@ -8,6 +8,8 @@ use App\Concerns\Searchable;
 use App\Contracts\SearchServiceContract;
 use App\Models\Article;
 use Elasticsearch\Client;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Arr;
 
 class ElasticSearchService implements SearchServiceContract
 {
@@ -30,15 +32,17 @@ class ElasticSearchService implements SearchServiceContract
                     'query' => [
                         'multi_match' => [
                             'fields' => $model->getSearchFields(),
-                            'query' => $query,
+                            'query' => "$query",
                         ],
                     ],
                 ],
             ]);
+
+            return $this->getModels($class, $items);
         }
     }
 
-    public function add(Searchable $model)
+    public function add(Model $model)
     {
         $this->client->index([
             'index' => $model->getSearchIndex(),
@@ -48,12 +52,19 @@ class ElasticSearchService implements SearchServiceContract
         ]);
     }
 
-    public function remove(Searchable $model)
+    public function remove(Model $model)
     {
         $this->client->delete([
             'index' => $model->getSearchIndex(),
             'type' => $model->getSearchType(),
             'id' => $model->getKey(),
         ]);
+    }
+
+    private function getModels(string $class, array $items)
+    {
+        $ids = Arr::pluck($items['hits']['hits'], '_id');
+
+        return $class::findMany($ids);
     }
 }

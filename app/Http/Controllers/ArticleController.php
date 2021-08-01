@@ -4,20 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
 
 class ArticleController extends Controller
 {
     private const PER_PAGE = 20;
+    private const SEARCH_PARAM = 'q';
 
     /**
      * Display a listing of the resource.
      *
      */
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Article::paginate(self::PER_PAGE);
+        $articles = Article::search($request->get(self::SEARCH_PARAM));
 
-        return view('articles.index', compact('articles'));
+        $paginator = new LengthAwarePaginator(
+            $articles->forPage(Paginator::resolveCurrentPage(), self::PER_PAGE),
+            $articles->count(),
+            self::PER_PAGE
+        );
+
+        return view('articles.index', ['articles' => $paginator]);
     }
 
     /**
