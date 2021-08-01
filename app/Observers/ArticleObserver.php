@@ -16,7 +16,7 @@ class ArticleObserver
      */
     public function created(Article $article)
     {
-        AddArticleToSearch::dispatch($article);
+        AddArticleToSearch::dispatch($article)->onQueue('articles');
     }
 
     /**
@@ -38,7 +38,7 @@ class ArticleObserver
      */
     public function deleted(Article $article)
     {
-        RemoveArticleFromSearch::dispatch($article);
+        RemoveArticleFromSearch::dispatch($article)->onQueue('articles');
     }
 
     /**
@@ -49,7 +49,7 @@ class ArticleObserver
      */
     public function restored(Article $article)
     {
-        AddArticleToSearch::dispatch($article);
+        AddArticleToSearch::dispatch($article)->onQueue('articles');
     }
 
     /**
@@ -60,6 +60,6 @@ class ArticleObserver
      */
     public function forceDeleted(Article $article)
     {
-        RemoveArticleFromSearch::dispatch($article);
+        RemoveArticleFromSearch::dispatch($article)->onQueue('articles');
     }
 }
